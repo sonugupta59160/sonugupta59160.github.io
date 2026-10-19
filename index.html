@@ -1,14 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonu Kumar Gupta | Data Science Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sonu Kumar Gupta - B.Tech CSE Student and Aspiring Data Scientist. Explore my skills, projects and achievements.">
+<title>Sonu Kumar Gupta | Data Science Portfolio</title>
+
+<style>
+:root {
+    --bg: #080d1b;
+    --card: #111a2e;
+    --text: #f1f5f9;
+    --muted: #a0aec0;
+    --accent: #38bdf8;
+    --border: #25334b;
+}
+
+body.light {
+    --bg: #f4f7fc;
+    --card: #ffffff;
+    --text: #172033;
+    --muted: #526174;
+    --accent: #2563eb;
+    --border: #dbe3ef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.7;
+    transition: background 0.3s, color 0.3s;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    color: var(--accent);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+button {
+    cursor: pointer;
+}
+
+.theme-btn {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 9px 12px;
+    border-radius: 8px;
+}
+
+.hero {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 90px 20px;
+    background:
+        radial-gradient(circle at 50% 35%,
+        rgba(59,130,246,0.14), transparent 55%);
+}
+
+.hero h1 {
+    font-size: clamp(35px, 6vw, 65px);
+    margin: 15px 0;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero h2 {
+    font-size: clamp(18px, 3vw, 26px);
+    color: var(--accent);
+}
+
+.hero p {
+    max-width: 650px;
+    color: var(--muted);
+    margin: 20px auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 8px;
+    background: linear-gradient(120deg, #2563eb, #7c3aed);
+    color: white;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+section {
+    padding: 75px 9%;
+    scroll-margin-top: 90px;
+}
+
+.section-title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title span {
+    color: var(--accent);
+}
+
+.about {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 26px;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+}
+
+.card h3 {
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+.tags {
+    margin-top: 15px;
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(59,130,246,0.12);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 5px 4px 0 0;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 18px;
+    font-weight: 600;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+}
+
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .hero {
+        min-height: 65vh;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        transition: none !important;
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1>Sonu Kumar Gupta</h1>
+
+<header>
+    <div class="logo">SG.</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="theme-btn" id="themeToggle"
+            aria-label="Switch theme">☀️</button>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <p>👋 Hello, I'm</p>
+
+    <h1 class="gradient">Sonu Kumar Gupta</h1>
+
     <h2>Aspiring Data Scientist</h2>
-    <p>B.Tech CSE | Arka Jain University</p>
-    <p>Welcome to my Data Science Portfolio!</p>
+
+    <p>
+        B.Tech Computer Science Engineering Student
+        at Arka Jain University, Jamshedpur.
+        Passionate about Python, Data Science,
+        Machine Learning and solving real-world problems.
+    </p>
+
+    <div>
+        <a class="btn" href="#projects">Explore Projects</a>
+        <a class="btn"
+           href="https://github.com/sonugupta59160"
+           target="_blank" rel="noopener noreferrer">
+           GitHub Profile
+        </a>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About <span>Me</span></h2>
+
+    <p class="about">
+        I'm Sonu Kumar Gupta, a Computer Science Engineering
+        undergraduate at Arka Jain University.
+
+        My primary interest is Data Science and Data Analytics.
+        I enjoy learning programming, exploring datasets,
+        building practical projects and improving my
+        problem-solving skills.
+
+        My goal is to become a skilled Data Scientist
+        and contribute to meaningful technology solutions.
+    </p>
+</section>
+
+<section id="skills">
+    <h2 class="section-title">Technical <span>Skills</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>💻 Programming</h3>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Java</span>
+                <span class="tag">SQL (Learning)</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>📊 Data Analytics</h3>
+            <div class="tags">
+                <span class="tag">Power BI</span>
+                <span class="tag">Data Visualization</span>
+                <span class="tag">Excel (Learning)</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>🤖 Currently Learning</h3>
+            <div class="tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Statistics</span>
+                <span class="tag">Data Science</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>🛠️ Tools</h3>
+            <div class="tags">
+                <span class="tag">GitHub</span>
+                <span class="tag">VS Code</span>
+                <span class="tag">Git</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="section-title">Featured <span>Projects</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>🌍 SafeEarth AI</h3>
+            <p>
+                Disaster intelligence and emergency response
+                platform prototype featuring risk visualization,
+                an AI assistant and emergency coordination concepts.
+            </p>
+
+            <div class="tags">
+                <span class="tag">AI</span>
+                <span class="tag">Python</span>
+                <span class="tag">Web Development</span>
+            </div>
+
+            <a class="project-link"
+               href="https://github.com/sonugupta59160"
+               target="_blank" rel="noopener noreferrer">
+               Explore on GitHub →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>📊 Sales Analytics Dashboard</h3>
+            <p>
+                A data visualization project focused on
+                exploring sales, revenue, profit and
+                business performance using Power BI.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Power BI</span>
+                <span class="tag">Data Analytics</span>
+            </div>
+
+            <p style="margin-top:18px">
+                Project details and dashboard link coming soon.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="education">
+    <h2 class="section-title">My <span>Education</span></h2>
+
+    <div class="card">
+        <h3>🎓 Bachelor of Technology (B.Tech)</h3>
+        <p>Computer Science Engineering</p>
+        <p>Arka Jain University, Jamshedpur</p>
+        <p>Currently pursuing undergraduate studies.</p>
+    </div>
+</section>
+
+<section id="certifications">
+    <h2 class="section-title">Certifications & <span>Achievements</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>🏆 Microsoft Cloud Fundamentals</h3>
+            <p>Cloud fundamentals learning certificate.</p>
+        </div>
+
+        <div class="card">
+            <h3>🚀 National Space Day Quiz</h3>
+            <p>Participation certificate with a score of 93%.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2 class="section-title">Let's <span>Connect</span></h2>
+
+    <p>
+        Interested in Data Science, technology and
+        collaborative projects? Connect with me!
+    </p>
+
+    <a class="btn"
+       href="https://github.com/sonugupta59160"
+       target="_blank" rel="noopener noreferrer">
+       GitHub
+    </a>
+
+    <a class="btn" href="#home">
+       Back to Top ↑
+    </a>
+</section>
+
+</main>
+
+<footer>
+    <p>© <span id="year"></span> Sonu Kumar Gupta.</p>
+    <p>Built with HTML, CSS & JavaScript | Hosted on GitHub Pages</p>
+</footer>
+
+<script>
+const toggle = document.getElementById("themeToggle");
+
+function applyTheme(theme) {
+    document.body.classList.toggle("light", theme === "light");
+
+    toggle.textContent = theme === "light" ? "🌙" : "☀️";
+
+    toggle.setAttribute(
+        "aria-label",
+        theme === "light" ? "Switch to dark mode" : "Switch to light mode"
+    );
+}
+
+let savedTheme = localStorage.getItem("portfolio-theme") || "dark";
+applyTheme(savedTheme);
+
+toggle.addEventListener("click", () => {
+    const nextTheme =
+        document.body.classList.contains("light") ? "dark" : "light";
+
+    applyTheme(nextTheme);
+    localStorage.setItem("portfolio-theme", nextTheme);
+});
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
 </body>
 </html>
